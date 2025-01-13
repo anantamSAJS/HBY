@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Happy Birthday</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Happy Birthday Xola">
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika">
+    <style>
+        /* General Reset */
+        body {
+            font-family: 'Signika', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Balloons */
+        .balloons {
+            position: absolute;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        .balloons h2 {
+            font-size: 24px;
+        }
+
+        /* Responsive Balloon Positions */
+        #b1 { left: 10%; top: 20%; }
+        #b2 { left: 30%; top: 25%; }
+        #b3 { left: 50%; top: 15%; }
+        #b4 { left: 70%; top: 30%; }
+        #b5 { left: 20%; top: 10%; }
+        #b6 { left: 40%; top: 5%; }
+        #b7 { left: 60%; top: 20%; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Cake */
+        .cake-cover {
+            margin: 20px 0;
+        }
+
+        .cake {
+            position: relative;
+            margin: auto;
+            width: 150px;
+            height: 200px;
+            background: #ffcccb;
+            border-radius: 10px;
+        }
+
+        .velas {
+            position: absolute;
+            top: -50px;
+            left: 20px;
+            width: 110px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .fuego {
+            width: 10px;
+            height: 20px;
+            background: radial-gradient(circle, orange, red);
+            border-radius: 50%;
+        }
+
+        /* Buttons */
+        .navbar-fixed-bottom {
+            background-color: #fff;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .btn {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        /* Messages */
+        .message {
+            margin-top: 20px;
+        }
+
+        .message p {
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .balloons h2 {
+                font-size: 18px;
+            }
+
+            .cake {
+                width: 120px;
+                height: 150px;
+            }
+
+            .message p {
+                font-size: 16px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading"></div>
+    <audio class="song" controls loop>
+        <source src="hbd.mp3"></source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+
+    <!-- Balloons -->
+    <div class="balloons text-center" id="b1"><h2 style="color:#F2B300;">B</h2></div>
+    <div class="balloons text-center" id="b2"><h2 style="color:#0719D4;">H</h2></div>
+    <div class="balloons text-center" id="b3"><h2 style="color:#D14D39;">A</h2></div>
+    <div class="balloons text-center" id="b4"><h2 style="color:#8FAD00;">A</h2></div>
+    <div class="balloons text-center" id="b5"><h2 style="color:#8377E4;">V</h2></div>
+    <div class="balloons text-center" id="b6"><h2 style="color:#99C96A;">Y</h2></div>
+    <div class="balloons text-center" id="b7"><h2 style="color:#20CFB4;">A</h2></div>
+
+    <div class="container">
+        <!-- Cake -->
+        <div class="row cake-cover">
+            <div class="col-md-12 text-center">
+                <div class="cake">
+                    <div class="velas">
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message -->
+        <div class="row message">
+            <div class="col-md-12">
+                <!-- Wishes will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="navbar navbar-fixed-bottom">
+            <div class="row text-center">
+                <button class="btn btn-primary" id="turn_on">Turn On Lights</button>
+                <button class="btn btn-primary" id="play">Play Music</button>
+                <button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
+                <button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
+                <button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
+                <button class="btn btn-primary" id="light_candle">Light Candle</button>
+                <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("wish_message").addEventListener("click", function () {
+            const wishes = [
+                "Happy Birthday Bhaavya,",
+                "Mera bacha mera baby..",
+                "I love youuu the most in this world...",
+                "You are my everything..",
+                "My wife, my dumbo, my girlfriend, my jaan,",
+                "my enemy, my sexy bestie,",
+                "and the most beautiful girl in this whole world..",
+                "May this year go the best for you..",
+                "Today I want to tell how much I adore you",
+                "and am always for you and only you...",
+                "Love you!"
+            ];
+
+            const messageContainer = document.querySelector(".message .col-md-12");
+            messageContainer.innerHTML = "";
+
+            wishes.forEach((wish, index) => {
+                setTimeout(() => {
+                    const p = document.createElement("p");
+                    p.textContent = wish;
+                    messageContainer.appendChild(p);
+                }, index * 2000); // 2 seconds delay per wish
+            });
+        });
+    </script>
+</body>
+</html>
